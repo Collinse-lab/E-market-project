@@ -3,11 +3,20 @@
   margin: 0 auto;
  
 }
-
 .logo {
-  height: 3em; 
+  height: 3em;
+  padding:5px;
+  border-radius:20px; 
 }
-
+.line{
+  display: flex;
+  flex-Direction: row;
+}
+input{
+  margin:auto;
+  margin-inline-start: 10px;
+  padding:auto;
+}
 .card {
   padding: 2em;
 }
