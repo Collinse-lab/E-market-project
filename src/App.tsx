@@ -5,12 +5,31 @@ import './styles.css'
 
 
 const fruits = [
-  {id:1,text:"Apple"},
-  {id:2,text:"Orange"},
-  {id:3,text:"Mango"},
-  {id:4,text:"Pear"},
-  {id:5,text:"Lemon"},
+  {id: 1, text: "Apple", price: 1.99, emoji: "🍎"},
+  {id: 2, text: "Orange", price: 2.49, emoji: "🍊"},
+  {id: 3, text: "Mango", price: 3.99, emoji: "🥭"},
+  {id: 4, text: "Pear", price: 2.29, emoji: "🍐"},
+  {id: 5, text: "Lemon", price: 1.49, emoji: "🍋"},
+  {id: 6, text: "Banana", price: 0.99, emoji: "🍌"},
+  {id: 7, text: "Strawberry", price: 4.99, emoji: "🍓"},
+  {id: 8, text: "Grapes", price: 3.49, emoji: "🍇"},
 ];
+function MenuButton (){
+const [isOpen, setIsOpen]= useState(false);
+  return(
+    <div className="menu">
+      <button onClick={()=>setIsOpen(!isOpen)}>☰ Menu</button>
+      {isOpen && (
+        <ul>
+        <li><button>📊 Dashboard</button></li>
+        <li><button>👤 Profile</button></li>
+        <li><button>⚙️ Settings</button></li>
+        <li><button>🔓 Logout</button></li>
+        </ul>
+      )}
+    </div>
+  );
+}
 function App() {
   const [count, setCount] = useState(0);
   const [searchTerm,setSearchTerm]=useState("");
@@ -22,7 +41,7 @@ function App() {
   return (
     <>
       <div className='line'>
-        <div>
+        <div className='header-left'>
         <MenuButton/>
         </div>
         <div>
@@ -30,6 +49,7 @@ function App() {
           <img src={Logo} className="logo" alt="Market logo" />
         </a>
         </div>
+        
         <h1>E-Market</h1>
         
   <div className='search'>
@@ -54,7 +74,7 @@ function App() {
              
         <ul>
           {filteredFruits.map(fruit =>(
-            <li key="fruit.id">{fruit.text}</li>
+            <li key={fruit.id}>{fruit.text}</li>
           ))}
         </ul>
         ):(
@@ -63,36 +83,31 @@ function App() {
         )}
         </div>
       </div>
-
-      <div className="card">
-        <button className="button"onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the logo to learn more
-      </p>
-    </>
-  )
-}
-function MenuButton (){
-const [isOpen, setIsOpen]= useState(false);
-  return(
-    <div className="menu">
-      <button onClick={()=>setIsOpen(!isOpen)}>Menu</button>
-      {isOpen && (
-        <ul>
-        <li><button>Dashboard</button></li>
-        <li><button>Profile</button></li>
-        <li><button>Settings</button></li>
-        <li><button>Logout</button></li>
-        </ul>
-      )}
-    </div>
-  );
-}
+       <div className="products-container">
+  <h2>Available Fruits</h2>
+  
+  <div className="fruits-list">
+    <table className="fruits-table">
+      <thead>
+        <tr>
+          <th>Fruit</th>
+          <th>Name</th>
+          <th>Price (per kg)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {fruits.map(fruit => (
+          <tr key={fruit.id}>
+            <td>{fruit.emoji}</td>
+            <td>{fruit.text}</td>
+            <td><strong>${fruit.price.toFixed(2)}</strong></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+     </>
+)};
 
 export default App
