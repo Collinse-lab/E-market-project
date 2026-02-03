@@ -32,7 +32,7 @@ const [isOpen, setIsOpen]= useState(false);
 }
 function App() {
   const [searchTerm,setSearchTerm]=useState("");
-    
+
 
   const filteredFruits =fruits.filter(fruit =>fruit.text.toLowerCase().includes(searchTerm.toLowerCase())
         );
@@ -62,9 +62,11 @@ function App() {
           {
         searchTerm && (
           <button
-          onClick= { () =>setSearchTerm("")}
+          onClick= { () => {setSearchTerm("");
+           alert("Search has been cleared"); 
+          }}
           arial-label="Clear search"
-          >x
+          >Clear
             </button>
         ) }
         
