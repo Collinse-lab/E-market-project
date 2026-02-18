@@ -32,6 +32,7 @@ const [isOpen, setIsOpen]= useState(false);
 }
 function App() {
   const [searchTerm,setSearchTerm]=useState("");
+  const [cartCount, setCartCount] = useState(0);
 
 
   const filteredFruits =fruits.filter(fruit =>fruit.text.toLowerCase().includes(searchTerm.toLowerCase())
@@ -49,7 +50,8 @@ function App() {
         </a>
         </div>
         
-        <h1>E-Market</h1>
+        <h1>E-Fruit Market</h1>
+        
         
   <div className='search'>
   <input 
@@ -59,6 +61,7 @@ function App() {
           onChange={(e) =>setSearchTerm(e.target.value)}
         
         />
+      
           {
         searchTerm && (
           <button
@@ -69,44 +72,35 @@ function App() {
           >Clear
             </button>
         ) }
+       
         
-        {searchTerm &&(
-          filteredFruits.length > 0 ?(
-             
-        <ul>
-          {filteredFruits.map(fruit =>(
-            <li key={fruit.id}>{fruit.text}</li>
-          ))}
+                  {searchTerm && (
+            filteredFruits.length > 0 ? (
+              <ul className="search-results">
+                {filteredFruits.map(fruit => (
+                  <li key={fruit.id}>{fruit.text}</li>
+                ))}
+
         </ul>
         ):(
         <p>No fruit found for"{searchTerm}"</p>
         )     
-        )}
+     ) }
         </div>
       </div>
-       <div className="products-container">
+       <div>
   <h2>Available Fruits</h2>
   
-  <div className="fruits-list">
-    <table className="fruits-table">
-      <thead>
-        <tr>
-          <th>Fruit</th>
-          <th>Name</th>
-          <th>Price (per kg)</th>
-        </tr>
-      </thead>
-      <tbody>
+  <div className='fruits-container'>
         {fruits.map(fruit => (
-          <tr key={fruit.id}>
-            <td>{fruit.emoji}</td>
-            <td>{fruit.text}</td>
-            <td><strong>${fruit.price.toFixed(2)}</strong></td>
-          </tr>
+          <div key={fruit.id} className="grid-item">
+            <div className="fruit-emoji">{fruit.emoji}</div>
+            <div  className="fruit-name">{fruit.text}</div>
+            <div className="fruit-price">${fruit.price.toFixed(2)}/Kg</div>
+            <div > <button className="buy-fruit">Buy Now</button></div>
+          </div>
         ))}
-      </tbody>
-    </table>
-  </div>
+        </div>
 </div>
      </>
 )};

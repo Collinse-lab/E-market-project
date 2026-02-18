@@ -45,24 +45,45 @@ input{
     width: 100%;
     justify-content: center;
   }
-.card {
-  padding: 2em;
+
+.fruits-container{
+   display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.fruit-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 8px;
 }
 
-.read-the-docs {
-  color: #888;
-  text-align:center;
+.grid-item{
+    aspect-ratio: 1 / 1;  /* Makes it square */
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
 }
-.fruits-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 2rem 0;
+.fruit-name {
+  margin-bottom: 5px;
 }
 
-.fruits-table th {
-  background-color: #646cff;
-  color: white;
-  padding: 12px;
-  text-align: left;
+.fruit-price {
+  color: #2ecc71;
+  font-weight: 600;
+   margin-bottom: 5px;
 }
-
+.buy-fruit{
+  border-radius: 10px;
+  font-weight:bold;
+  padding: 7px 15px;
+  font-size: 1rem;
+}
