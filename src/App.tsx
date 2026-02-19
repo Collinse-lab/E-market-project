@@ -37,6 +37,10 @@ function App() {
 
   const filteredFruits =fruits.filter(fruit =>fruit.text.toLowerCase().includes(searchTerm.toLowerCase())
         );
+         const addToCart = () => {
+    setCartCount(cartCount + 1);
+    alert("Item added to cart! 🛒");
+  };
 
   return (
     <>
@@ -51,9 +55,7 @@ function App() {
         </div>
         
         <h1>E-Fruit Market</h1>
-        
-        
-  <div className='search'>
+        <div className='search'>
   <input 
           type="text"
           placeholder="Search fruit..."
@@ -89,6 +91,13 @@ function App() {
         </div>
       </div>
        <div>
+        
+          <div className="cart-icon-container">
+          <button className="cart-button">
+            <span className="cart-emoji">🛒</span>
+            <span className="cart-count">{cartCount}</span>
+          </button>
+        </div>
   <h2>Available Fruits</h2>
   
   <div className='fruits-container'>
@@ -97,7 +106,7 @@ function App() {
             <div className="fruit-emoji">{fruit.emoji}</div>
             <div  className="fruit-name">{fruit.text}</div>
             <div className="fruit-price">${fruit.price.toFixed(2)}/Kg</div>
-            <div > <button className="buy-fruit">Buy Now</button></div>
+            <div > <button className="buy-fruit"onClick={addToCart}>Buy Now</button></div>
           </div>
         ))}
         </div>
