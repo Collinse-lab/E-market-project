@@ -166,7 +166,7 @@ function App() {
       <div className='header'>
         <div className='header-left'>
           <MenuButton/>
-        </div>
+        
         <div className='logo-container'>
           <a href="https://e-market.com" target="_blank" rel="noopener noreferrer">
             <img src={Logo} className="logo" alt="Market logo" />
@@ -174,7 +174,7 @@ function App() {
         </div>
         
         <h1>E-Fruit Market</h1>
-        
+        </div>
         <div className='search-container'>
           <input 
             type="text"

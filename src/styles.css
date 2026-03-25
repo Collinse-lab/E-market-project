@@ -11,20 +11,7 @@
   padding:10px;
   border-radius:20px; 
 }
-.line {
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  padding: 15px 20px;
-  background: #f8f9fa;
-  border-bottom: 2px solid #dee2e6;
-  flex-wrap: wrap;
-}
 
-.header-left {
-  display: flex;
-  align-items: center;
-}
 .fruits-container{
    display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -86,7 +73,7 @@
   transition: transform 0.2s, background 0.2s;
 }
 .cart-button:hover {
-  background: #45a049;
+  background: green;
   transform: scale(1.05);
 }
 
@@ -109,7 +96,7 @@
 }
 
 .cart-toggle {
-  background: #ff6b6b;
+  background: green;
   color: white;
   border: none;
   padding: 10px 15px;
@@ -120,14 +107,14 @@
 }
 
 .cart-toggle:hover {
-  background: #ff5252;
+  background: green;
 }
 
 .cart-badge {
   position: absolute;
   top: -8px;
   right: -8px;
-  background: #ff4444;
+  background: red;
   color: white;
   border-radius: 50%;
   padding: 2px 6px;
@@ -269,34 +256,46 @@
 
 .header-left {
   flex: 1;
+  display:flex;
+  align-items: center;
+  gap:0;
+  justify-content: flex-start;
 }
 
 .logo-container {
-  flex: 1;
+  flex: 0 0 auto;
+  display:flex;
   text-align: center;
 }
 
 .logo {
   max-height: 50px;
+  width: auto;
+  display: block;
 }
 
 .header h1 {
-  flex: 2;
-  text-align: center;
+  flex: 0 0 auto;
+  text-align: left;
   margin: 0;
+  padding: 0;
+  white-space: nowrap;
 }
 
 .search-container {
-  flex: 2;
+  flex: 0 0 auto;
   display: flex;
   gap: 10px;
+  width: auto;
+  margin-right: 5px;
+  
 }
 
 .search-container input {
   flex: 1;
   padding: 10px;
   border: 1px solid #ddd;
-  border-radius: 5px;
+  border-radius: 20px;
   font-size: 1em;
 }
 
