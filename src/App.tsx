@@ -29,7 +29,7 @@ function MenuButton() {
   const [isOpen, setIsOpen] = useState(false);
   return(
     <div className="menu">
-      <button onClick={() => setIsOpen(!isOpen)}>☰ Menu</button>
+      <button onClick={() => setIsOpen(!isOpen)}> ☰ </button>
       {isOpen && (
         <ul>
           <li><button>📊 Dashboard</button></li>
